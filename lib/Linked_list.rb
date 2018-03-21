@@ -14,8 +14,8 @@ class LinkedList
     @head = head
   end
 
-  def append(data)
-    self.head = Node.new(data)
+  def append(sound)
+    self.head = Node.new(sound)
   end
 
   def count
@@ -23,6 +23,9 @@ class LinkedList
     else
       1
     end
+  end
 
-
+  def to_string
+    "doop,#{head.sound},doop"
+  end
 end

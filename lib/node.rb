@@ -1,12 +1,12 @@
 class Node
-attr_reader :data,
+attr_reader :sound,
             :next_node
             :head
 
 
-  def initialize(data = nil)
-    @data = data
-    @next_node = next_node
+  def initialize(sound)
+    @sound = sound
+    @next_node = nil
     @head = next_node
   end
 end
