@@ -22,7 +22,16 @@ require "./lib/jungle_beat"
       assert_nil node.next_node
     end
 
+    def test_tail_returns_true_if_next_node_returns_nil
+      node = Node.new('new')
+      assert_equal node.tail?, true
+    end
 
+    def test_next_node
+      node = Node.new ("new")
+      data = linked_list.next_node
+      assert_equal data, data
+    end
 
 
 

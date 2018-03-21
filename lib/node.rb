@@ -1,12 +1,25 @@
 class Node
 attr_reader :sound,
-            :next_node
-            :head
+            :head,
+            :tail,
+            :empty
 
+
+attr_accessor :next_node
 
   def initialize(sound)
     @sound = sound
     @next_node = nil
-    @head = next_node
+    @head = nil
+    @tail = tail
+    @empty = empty
   end
+
+  def new_node(sound)
+    Node.new(sound)
+  end
+
+
+
+
 end
