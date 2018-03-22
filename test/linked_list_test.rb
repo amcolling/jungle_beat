@@ -36,39 +36,45 @@ require "./lib/jungle_beat"
       linked_list = LinkedList.new
       linked_list.append("doop")
       data = linked_list.to_string
-      assert_equal "doop,doop,doop",data
+      assert_equal "doop, doop, doop", data
     end
-
-    def test_append_multiple_nodes
-      linked_list = LinkedList.new
-      linked_list.append("doop")
-      linked_list.append("deep")
-      data = linked_list.head.next_node
-      assert_equal data, data
-    end
-
-    # def test_last_node_is_the_tail
-    #   linked_list = LinkedList.new
-    #   linked_list.append("deep")
-    #   data = linked_list.last_node(linked_list.head)
-    #   assert_instance_of Node, data
-    #   assert_equal "deep", data.sound
-    # end
 
     def test_new_node
       linked_list = LinkedList.new
-      data = linked_list.next_node("deep")
+      data = linked_list.append("deep")
       assert_instance_of Node, data
       assert_equal "deep", data.sound
     end
 
     def test_prepend_to_head
-      skip
       linked_list = LinkedList.new
-      linked_list.append("suu")
-      linked_list.append("plop")
-      linked_list.prepend("dop")
-      data = linked_list.to_string
-      assert_equal "dop","plop","suu", data
+      linked_list.append('suu')
+      linked_list.append('plop')
+      linked_list.prepend('doop')
+      assert_equal 'doop suu plop', linked_list.data
+      binding.pry
     end
-end
+
+    def test_insert
+    end  
+
+
+  end
+#   require "./lib/linked_list"
+# > list = LinkedList.new
+# > list.append("plop")
+# => "plop"
+# > list.to_string
+# => "plop"
+# > list.append("suu")
+# => "suu"
+# > list.prepend("dop")
+# => "dop"
+# > list.to_string
+# => "dop plop suu"
+# > list.count
+# => 3
+# > list.insert(1, "woo")
+# => "woo"
+# list.to_string
+# => "dop woo plop suu"

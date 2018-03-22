@@ -14,10 +14,6 @@ class LinkedList
     @head = head
   end
 
-  def append(data)
-    self.head = Node.new(data)
-  end
-
   def count
     if head.nil?
     else
@@ -26,7 +22,9 @@ class LinkedList
   end
 
   def to_string
-    "doop,#{head.sound},doop"
+    current_node = @head
+    current_node = current_node.next_node
+    "doop, #{head.sound}, doop"
   end
 
   # def last_node(node)
@@ -35,12 +33,13 @@ class LinkedList
   # end
 
   def prepend_to_head(data)
-    node = new_node(data)
-    node.next_node = head
-    self.head = node
-  end
-
-  def test_empty_false_when_head_has_data
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      current = @head
+      current.next_node.nil?
+      current = current.next_node
+    end
   end
 
   def append(data)
@@ -48,11 +47,27 @@ class LinkedList
       @head = Node.new(data)
     else
       current = @head
-      current.next_node.nil?
-    current = current.next_node
+      until current.next_node.nil?
+      current = current.next_node
+      end
+      current.next_node = Node.new
     end
   end
-    # current.next_node
 
+  def prepend(data)
+    if @head.nil?
+      @head = Node.new(data)
+      @head = Node.new(data)
+      old_head = @head.next_node
+    end
+  end
 
+  def insert(index, data)
+    count = 0
+    current_node = @head
+    new_node = Node.new(data)
+    until count == index -1
+      current_node = current_node.next_node
+      count +=1
+    end
 end
